@@ -139,8 +139,8 @@
 						// a 'release' parameter for ADSR like time settings.'
 						// add { 'metadata': { release: 0.3 } } to soundfont files
 						var gain = source.gainNode.gain;
-						gain.linearRampToValueAtTime(gain.value, delay);
-						gain.linearRampToValueAtTime(-1.0, delay + 0.3);
+						gain.linearRampToValueAtTime(gain.value, delay - 0.2);
+						gain.linearRampToValueAtTime(-1.0, delay);
 					}
 					///
 					if (useStreamingBuffer) {
@@ -153,9 +153,9 @@
 						}
 					} else {
 						if (source.noteOff) {
-							source.noteOff(delay + 0.5);
+							source.noteOff(delay);
 						} else {
-							source.stop(delay + 0.5);
+							source.stop(delay);
 						}
 					}
 					///
